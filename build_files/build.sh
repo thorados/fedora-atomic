@@ -22,18 +22,20 @@ echo "::group:: Install Hyprland and utils"
 # Install hyprland from COPR
 dnf5 copr enable -y "solopasha/hyprland" \
 
-dnf5 install -y         \
-    hyprland            \
-    hyprpaper           \
-    hyprpicker          \
-    hypridle            \
-    hyprlock            \
-    hyprsunset          \
-    hyprpolkitagent     \
-    hyprsysteminfo      \
-    qt6ct-kde           \
-    hyprland-qt-support \
-    hyprland-qtutils
+dnf5 install -y --skip-broken   \
+    hyprland                    \
+    xdg-desktop-portal-hyprland \
+    hyprpaper                   \
+    hyprpicker                  \
+    hypridle                    \
+    hyprlock                    \
+    hyprshot                    \
+    satty                       \
+    cliphist                    \
+    hyprpolkitagent             \
+    hyprsysteminfo              \
+    qt6ct-kde                   \
+    hyprqt6engine
 
 dnf5 copr disable -y "solopasha/hyprland" \
 
