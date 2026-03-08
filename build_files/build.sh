@@ -10,7 +10,45 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+dnf5 install -y             \
+    tmux                    \
+    util-linux              \
+    chezmoi                 \
+    neovim                  \
+    btop
+
+echo "::group:: Install Hyprland and utils"
+
+# Install hyprland from COPR
+dnf5 copr enable -y "solopasha/hyprland" \
+
+dnf5 install -y         \
+    hyprland            \
+    hyprpaper           \
+    hyprpicker          \
+    hypridle            \
+    hyprlock            \
+    hyprsunset          \
+    hyprpolkitagent     \
+    hyprsysteminfo      \
+    qt6ct-kde           \
+    hyprland-qt-support \
+    hyprland-qtutils
+
+dnf5 copr disable -y "solopasha/hyprland" \
+
+# Install additional utilities that work well with WMs
+dnf5 install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
+
+dnf5 install -y             \
+    noctalia-shell          \
+    kitty                   \
+    pavucontrol             \
+    brightnessctl           \
+    wl-gammactl
+
+echo "Hyprland installed and utils successfully"
+echo "::endgroup::"
 
 # Use a COPR Example:
 #
