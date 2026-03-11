@@ -20,7 +20,7 @@ dnf5 install -y             \
 echo "::group:: Install Hyprland and utils"
 
 # Install hyprland from COPR
-dnf5 copr enable -y "solopasha/hyprland" \
+dnf5 copr enable -y "nett00n/hyprland" \
 
 dnf5 install -y --skip-broken   \
     hyprland                    \
@@ -37,7 +37,7 @@ dnf5 install -y --skip-broken   \
     qt6ct-kde                   \
     hyprqt6engine
 
-dnf5 copr disable -y "solopasha/hyprland" \
+dnf5 copr disable -y "nett00n/hyprland"
 
 # Install additional utilities that work well with WMs
 dnf5 install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
@@ -48,6 +48,8 @@ dnf5 install -y             \
     pavucontrol             \
     brightnessctl           \
     wl-gammactl
+
+rm /etc/yum.repos.d/terra.repo
 
 echo "Hyprland installed and utils successfully"
 echo "::endgroup::"
