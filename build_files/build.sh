@@ -30,11 +30,8 @@ dnf5 install -y --skip-broken   \
     hypridle                    \
     hyprlock                    \
     hyprshot                    \
-    satty                       \
-    cliphist                    \
     hyprpolkitagent             \
     hyprsysteminfo              \
-    qt6ct-kde                   \
     hyprqt6engine
 
 dnf5 copr disable -y "nett00n/hyprland"
