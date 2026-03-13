@@ -15,7 +15,8 @@ dnf5 install -y             \
     util-linux              \
     chezmoi                 \
     neovim                  \
-    btop
+    btop                    \
+    rocm
 
 echo "::group:: Install Hyprland and utils"
 
