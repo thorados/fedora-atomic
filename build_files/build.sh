@@ -32,7 +32,6 @@ dnf5 install -y --skip-broken   \
     hyprshot                    \
     hyprpolkitagent             \
     hyprsysteminfo              \
-    hyprqt6engine               \
     hyprland-guiutils
 
 dnf5 copr disable -y "nett00n/hyprland"
