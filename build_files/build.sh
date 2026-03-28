@@ -43,6 +43,7 @@ dnf5 install -y             \
     noctalia-shell          \
     kitty                   \
     pavucontrol             \
+    udiskie                 \
     brightnessctl           \
     wl-gammactl
 
