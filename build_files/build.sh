@@ -15,8 +15,7 @@ dnf5 install -y             \
     util-linux              \
     chezmoi                 \
     neovim                  \
-    btop                    \
-    rocm
+    btop
 
 echo "::group:: Install Hyprland and utils"
 
@@ -33,11 +32,12 @@ dnf5 install -y --skip-broken   \
     hyprshot                    \
     hyprpolkitagent             \
     hyprsysteminfo              \
-    hyprqt6engine
+    hyprqt6engine               \
+    hyprland-guiutils
 
 dnf5 copr disable -y "nett00n/hyprland"
 
-# Install additional utilities that work well with WMs
+# Install additional utilities that work well with hyrpland
 dnf5 install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 dnf5 install -y             \
@@ -48,6 +48,14 @@ dnf5 install -y             \
     wl-gammactl
 
 rm /etc/yum.repos.d/terra.repo
+
+# Install nwg-look from COPR
+dnf5 copr enable -y "tofik/nwg-shell" \
+
+dnf5 install -y \
+    nwg-look
+
+dnf5 copr disable -y "tofik/nwg-shell"
 
 echo "Hyprland installed and utils successfully"
 echo "::endgroup::"
