@@ -31,6 +31,7 @@ dnf5 install -y --skip-broken   \
     hyprlock                    \
     hyprshot                    \
     hyprpolkitagent             \
+    hyprland-qt-support         \
     hyprsysteminfo              \
     hyprland-guiutils
 
