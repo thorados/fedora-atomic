@@ -4,7 +4,7 @@ COPY build_files /
 
 # Base Image
 # FROM quay.io/fedora-ostree-desktops/cosmic-atomic:43
-FROM quay.io/fedora/fedora-kinoite:44
+FROM quay.io/fedora/fedora-kinoite:43
 
 ## Other possible base images include:
 # FROM ghcr.io/ublue-os/bazzite:latest
