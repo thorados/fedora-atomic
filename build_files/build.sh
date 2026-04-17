@@ -22,6 +22,7 @@ echo "::group:: Install Hyprland and utils"
 # Codes https://rpmfusion.org/Howto/Multimedia
 echo "::group:: Install codecs"
 
+dnf5 group install -y core
 dnf5 group upgrade -y core
 dnf5 group install -y multimedia
 dnf5 group install -y sound-and-video
