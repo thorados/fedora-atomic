@@ -49,8 +49,7 @@ dnf5 install -y --skip-unavailable    \
     libva                             \
     libva-utils                       \
     libavcodec-freeworld              \
-    openh264                          \ 
-    mozilla-openh264
+    openh264                          
     
 echo "::endgroup::"
 
