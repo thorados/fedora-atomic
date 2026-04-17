@@ -9,6 +9,14 @@ set -ouex pipefail
 # List of rpmfusion packages can be found here:
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
+echo "::group:: Enable RPM Fusion"
+
+dnf5 install -y https://mirrors.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm https://mirrors.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+echo "::endgroup::"
+
+echo "::group:: Install packages"
+
 # this installs a package from fedora repos
 dnf5 install -y             \
     tmux                    \
@@ -17,7 +25,7 @@ dnf5 install -y             \
     neovim                  \
     btop
 
-echo "::group:: Install Hyprland and utils"
+echo "::endgroup::"
 
 # Codes https://rpmfusion.org/Howto/Multimedia
 echo "::group:: Install codecs"
@@ -38,6 +46,10 @@ dnf5 install -y                       \
     openh264                          \ 
     gstreamer1-plugin-openh264        \
     mozilla-openh264
+    
+echo "::endgroup::"
+
+echo "::group:: Install Hyprland and utils"
 
 # Install hyprland from COPR
 dnf5 copr enable -y "nett00n/hyprland" \
@@ -87,6 +99,11 @@ echo "::endgroup::"
 # dnf5 -y install package
 # Disable COPRs so they don't end up enabled on the final image:
 # dnf5 -y copr disable ublue-os/staging
+
+# Cleanup
+
+# Disable RPM Fusion
+dnf5 remove -y rpmfusion-free-release rpmfusion-nonfree-release
 
 #### Example for enabling a System Unit File
 
