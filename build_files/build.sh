@@ -42,7 +42,9 @@ dnf5 update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageK
 dnf5 install -y --skip-unavailable    \
     mesa-va-drivers-freeworld         \
     mesa-va-drivers-freeworld.i686    \
-    ffmpeg-libs libva libva-utils     \
+    ffmpeg-libs                       \
+    libva                             \
+    libva-utils                       \
     openh264                          \ 
     gstreamer1-plugin-openh264        \
     mozilla-openh264
