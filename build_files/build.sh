@@ -39,13 +39,22 @@ dnf5 swap -y ffmpeg-free ffmpeg --allowerasing
 
 dnf5 update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 
-dnf5 install -y                       \
+dnf5 install -y --skip-unavailable    \
     mesa-va-drivers-freeworld         \
     mesa-va-drivers-freeworld.i686    \
     ffmpeg-libs libva libva-utils     \
     openh264                          \ 
     gstreamer1-plugin-openh264        \
     mozilla-openh264
+    
+echo "::endgroup::"
+
+# Fonts
+echo "::group:: Install codecs"
+
+dnf5 install -y --skip-unavailable    \
+    liberation-fonts                  \
+    google-droid-sans-fonts
     
 echo "::endgroup::"
 
