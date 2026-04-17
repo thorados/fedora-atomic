@@ -19,6 +19,25 @@ dnf5 install -y             \
 
 echo "::group:: Install Hyprland and utils"
 
+# Codes https://rpmfusion.org/Howto/Multimedia
+echo "::group:: Install codecs"
+
+dnf5 group upgrade -y core
+dnf5 group install -y multimedia
+dnf5 group install -y sound-and-video
+
+dnf5 swap -y ffmpeg-free ffmpeg --allowerasing
+
+dnf5 update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
+
+dnf5 install -y                       \
+    mesa-va-drivers-freeworld         \
+    mesa-va-drivers-freeworld.i686    \
+    ffmpeg-libs libva libva-utils     \
+    openh264                          \ 
+    gstreamer1-plugin-openh264        \
+    mozilla-openh264
+
 # Install hyprland from COPR
 dnf5 copr enable -y "nett00n/hyprland" \
 
