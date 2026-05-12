@@ -65,7 +65,7 @@ echo "::endgroup::"
 echo "::group:: Install Hyprland and utils"
 
 # Install hyprland from COPR
-dnf5 copr enable -y "nett00n/hyprland" \
+dnf5 copr enable -y "lionheartp/Hyprland" \
 
 dnf5 install -y --skip-broken   \
     hyprland                    \
@@ -78,9 +78,10 @@ dnf5 install -y --skip-broken   \
     hyprpolkitagent             \
     hyprland-qt-support         \
     hyprsysteminfo              \
-    hyprland-guiutils
+    hyprland-guiutils           \
+    nwg-look
 
-dnf5 copr disable -y "nett00n/hyprland"
+dnf5 copr disable -y "lionheartp/Hyprland"
 
 # Install additional utilities that work well with hyrpland
 dnf5 install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
@@ -94,14 +95,6 @@ dnf5 install -y             \
     wl-gammactl
 
 rm /etc/yum.repos.d/terra.repo
-
-# Install nwg-look from COPR
-dnf5 copr enable -y "tofik/nwg-shell" \
-
-dnf5 install -y \
-    nwg-look
-
-dnf5 copr disable -y "tofik/nwg-shell"
 
 echo "Hyprland installed and utils successfully"
 echo "::endgroup::"
