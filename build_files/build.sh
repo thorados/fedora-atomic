@@ -62,11 +62,11 @@ dnf5 install -y --skip-unavailable    \
     
 echo "::endgroup::"
 
-echo "::group:: Install Cosmic Desktop"
-
-dnf5 install -y @cosmic-desktop-environment
-
-echo "::endgroup::"
+#echo "::group:: Install Cosmic Desktop"
+#
+#dnf5 install -y @cosmic-desktop-environment
+#
+#echo "::endgroup::"
 
 echo "::group:: Install Hyprland and utils"
 
