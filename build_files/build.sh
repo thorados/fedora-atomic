@@ -62,38 +62,19 @@ dnf5 install -y --skip-unavailable    \
     
 echo "::endgroup::"
 
-#echo "::group:: Install Cosmic Desktop"
-#
-#dnf5 install -y @cosmic-desktop-environment
-#
-#echo "::endgroup::"
-
-echo "::group:: Install Hyprland and utils"
-
-# Install hyprland from COPR
-dnf5 copr enable -y "lionheartp/Hyprland" \
-
-dnf5 install -y --skip-broken   \
-    hyprland                    \
-    xdg-desktop-portal-hyprland \
-    hyprpaper                   \
-    hyprpicker                  \
-    hypridle                    \
-    hyprlock                    \
-    hyprshot                    \
-    hyprpolkitagent             \
-    hyprland-qt-support         \
-    hyprsysteminfo              \
-    hyprland-guiutils           \
-    nwg-look
-
-dnf5 copr disable -y "lionheartp/Hyprland"
+echo "::group:: Install Niri and utils"
 
 # Install additional utilities that work well with hyrpland
 dnf5 install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 dnf5 install -y             \
-    noctalia-shell          \
+    niri                    \
+    swaybg                  \
+    swaylock                \
+    swayidle                \
+    dunst                   \
+    thunar                  \
+    nwg-look                \
     kitty                   \
     pavucontrol             \
     udiskie                 \
@@ -102,7 +83,7 @@ dnf5 install -y             \
 
 rm /etc/yum.repos.d/terra.repo
 
-echo "Hyprland installed and utils successfully"
+echo "Niri and utils installed successfully"
 echo "::endgroup::"
 
 # Use a COPR Example:
