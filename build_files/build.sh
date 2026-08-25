@@ -72,6 +72,7 @@ dnf5 install -y             \
     swaybg                  \
     swaylock                \
     swayidle                \
+    rofi                    \
     dunst                   \
     thunar                  \
     nwg-look                \
