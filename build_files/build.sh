@@ -75,6 +75,8 @@ dnf5 install -y             \
     rofi                    \
     dunst                   \
     thunar                  \
+    network-manager-applet  \
+    blueman                 \
     nwg-look                \
     kitty                   \
     pavucontrol             \
