@@ -62,9 +62,18 @@ dnf5 install -y --skip-unavailable    \
     
 echo "::endgroup::"
 
+# Gaming
+echo "::group:: Install gaming packages"
+
+dnf5 install -y --skip-unavailable    \
+    gamescope                         \
+    steam
+    
+echo "::endgroup::"
+
 echo "::group:: Install Niri and utils"
 
-# Install additional utilities that work well with hyrpland
+# Install additional utilities that work well with niri
 dnf5 install -y --nogpgcheck --repofrompath 'terra,https://repos.fyralabs.com/terra$releasever' terra-release
 
 dnf5 install -y             \
