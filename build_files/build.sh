@@ -40,7 +40,7 @@ dnf5 swap -y ffmpeg-free ffmpeg --allowerasing
 
 dnf5 update -y @multimedia --setopt="install_weak_deps=False" --exclude=PackageKit-gstreamer-plugin
 
-dnf5 install -y --skip-unavailable    \
+dnf5 install -y --skip-unavailable --skip-broken    \
     libvpx                            \
     mesa-va-drivers-freeworld         \
     mesa-va-drivers-freeworld.i686    \
