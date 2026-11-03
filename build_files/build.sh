@@ -93,7 +93,7 @@ dnf5 install -y             \
     brightnessctl           \
     wl-gammactl
 
-rm /etc/yum.repos.d/terra.repo
+rm -f /etc/yum.repos.d/terra.repo
 
 echo "Niri and utils installed successfully"
 echo "::endgroup::"
